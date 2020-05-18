@@ -5,15 +5,15 @@ const testEndpoint = async () => {
   try {
     const endpoint = core.getInput("endpoint");
     console.info(`Endpoint to check: ${endpoint}`);
+
     const request = await fetch(endpoint);
-    const result = await request.json();
 
-    console.info("Result", result);
-
-    if (!result.ok) {
+    // Throw an error if the request is anything other than 2xx.
+    if (!request.ok) {
       throw new Error("Not 2xx response.");
     }
 
+    const result = await request.json();
     core.setOutput("output", JSON.stringify(result));
   } catch (err) {
     core.setFailed(err.message);
