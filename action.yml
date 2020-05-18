@@ -1,0 +1,12 @@
+name: "Basic HTTP Check"
+description: "Perform a GET request against a provided endpoint and valid the response."
+inputs:
+  endpoint:
+    description: "The endpoint to perform the GET request against"
+    required: true
+outputs:
+  output:
+    description: "Response from the provided endpoint"
+runs:
+  using: "node12"
+  main: "index.js"
