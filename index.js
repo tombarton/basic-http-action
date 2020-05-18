@@ -14,9 +14,8 @@ const testEndpoint = async () => {
       throw new Error("Not 2xx response.");
     }
 
-    console.log(result);
-
     const result = await request.json();
+    console.log(result);
     core.setOutput("output", JSON.stringify(result));
   } catch (err) {
     core.setFailed(err.message);
