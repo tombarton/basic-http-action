@@ -8,6 +8,8 @@ const testEndpoint = async () => {
     const request = await fetch(endpoint);
     const result = await request.json();
 
+    console.info("Result", result);
+
     if (!result.ok) {
       throw new Error("Not 2xx response.");
     }
